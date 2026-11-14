@@ -1,0 +1,35 @@
+[project]
+name = "workflow-essai"
+version = "0.1.0"
+description = "Workflow d'essai du socle workflow-core : il prouve le branchement d'un workflow par manifeste."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.12,<3.13"
+dependencies = []
+
+[dependency-groups]
+dev = [
+    "pytest==9.2.0",
+    "ruff==0.17.3",
+]
+
+[build-system]
+requires = ["uv_build==0.12.3"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-name = "workflow_essai"
+module-root = ""
+
+[tool.ruff]
+line-length = 120
+target-version = "py312"
+src = ["workflow_essai", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "W", "F", "I", "N", "B", "C4", "UP", "SIM", "PIE", "PTH", "RET", "RUF"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = ["-ra", "--strict-markers", "--strict-config"]
