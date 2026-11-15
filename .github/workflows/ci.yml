@@ -33,3 +33,5 @@ jobs:
         run: uv run ruff format --check
       - name: Tests (pytest)
         run: uv run pytest
+      - name: Aucune mention du runtime
+        run: uv run python scripts/check_runtime_absent.py
